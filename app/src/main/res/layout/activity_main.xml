@@ -55,7 +55,7 @@
                 android:ems="10"
                 android:hint="sum"
                 android:inputType="number"
-                android:onClick="goedit1" />
+                android:onClick="et1" />
 
             <Space
                 android:layout_width="match_parent"
@@ -133,7 +133,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="sum"
-                android:inputType="number" />
+                android:inputType="number"
+                android:onClick="et2" />
 
             <Space
                 android:layout_width="match_parent"
@@ -210,7 +211,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="sum"
-                android:inputType="number" />
+                android:inputType="number"
+                android:onClick="et3" />
 
             <Space
                 android:layout_width="match_parent"

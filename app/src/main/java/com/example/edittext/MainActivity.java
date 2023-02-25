@@ -13,7 +13,8 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
     Random rnd =new Random();
     TextView tx1,tx2,tx3,tx4,tx5,tx6;
-    int fnum, snum,num,score;
+    int fnum, snum,num;
+    float score;
     EditText etn1, etn2, etn3;
     ImageView image1,image2,image3;
     String str;
@@ -35,10 +36,11 @@ public class MainActivity extends AppCompatActivity {
         image2 = (ImageView) findViewById(R.id.imageView2);
         image3 = (ImageView) findViewById(R.id.imageView3);
         btn =   (Button) findViewById(R.id.button);
+        btn.setVisibility(View.INVISIBLE);
         btn2 = (Button) findViewById(R.id.button2);
-        btn2.setVisibility(1);
+        btn2.setVisibility(View.INVISIBLE);
         btn3 = (Button) findViewById(R.id.button3);
-        btn3.setVisibility(1);
+        btn3.setVisibility(View.INVISIBLE);
         newgame = (Button) findViewById(R.id.newgame);
         fnum = rnd.nextInt(89)+10;
         snum = rnd.nextInt(89)+10;
@@ -60,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
         tx3.setText(""+fnum);
         snum = rnd.nextInt(89)+10;
         tx4.setText(""+snum);
+        btn.setVisibility(View.INVISIBLE);
+        etn1.setShowSoftInputOnFocus(true);
     }
 
     public void secbutton(View view) {
@@ -76,11 +80,14 @@ public class MainActivity extends AppCompatActivity {
         tx5.setText(""+fnum);
         snum = rnd.nextInt(89)+10;
         tx6.setText(""+snum);
+        btn2.setVisibility(View.INVISIBLE);
+        etn2.setShowSoftInputOnFocus(true);
     }
 
     public void thrdgo(View view) {
         str = (etn3.getText().toString());
         num = Integer.parseInt(str);
+        btn3.setVisibility(View.INVISIBLE);
         if (num == fnum+snum){
             image3.setImageResource(R.drawable.greenv);
             score ++;
@@ -88,13 +95,13 @@ public class MainActivity extends AppCompatActivity {
         else{
             image3.setImageResource(R.drawable.redx);
             }
-        if(score != 0)
-            Toast.makeText(this, score+"/3, "+ 100/score + " %", Toast.LENGTH_SHORT).show();
-        else
-            Toast.makeText(this, score+"/3, "+ score + " %", Toast.LENGTH_SHORT).show();
-
+        etn3.setShowSoftInputOnFocus(true);
+        Toast.makeText(this, (int)score+"/3, "+ (int)(score/3)*100 + " %", Toast.LENGTH_SHORT).show();
     }
     public void newgame(View view) {
+        btn.setVisibility(View.INVISIBLE);
+        btn2.setVisibility(View.INVISIBLE);
+        btn3.setVisibility(View.INVISIBLE);
         tx3.setText("");
         tx4.setText("");
         tx5.setText("");
@@ -109,5 +116,15 @@ public class MainActivity extends AppCompatActivity {
         snum = rnd.nextInt(89)+10;
         tx1.setText(""+fnum);
         tx2.setText(""+snum);
+    }
+    public void et1(View view) {
+        btn.setVisibility(View.VISIBLE);
+    }
+    public void et2(View view) {
+        btn2.setVisibility(View.VISIBLE);
+    }
+
+    public void et3(View view) {
+        btn3.setVisibility(View.VISIBLE);
     }
 }
